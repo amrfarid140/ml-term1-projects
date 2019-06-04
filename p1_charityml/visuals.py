@@ -60,8 +60,8 @@ def evaluate(results, accuracy, f1):
     """
   
     # Create figure
+    pl.subplots_adjust(top=10)
     fig, ax = pl.subplots(2, 3, figsize = (11,7))
-
     # Constants
     bar_width = 0.3
     colors = ['#A00000','#00A0A0','#00A000']
@@ -75,7 +75,7 @@ def evaluate(results, accuracy, f1):
                 ax[j//3, j%3].bar(i+k*bar_width, results[learner][i][metric], width = bar_width, color = colors[k])
                 ax[j//3, j%3].set_xticks([0.45, 1.45, 2.45])
                 ax[j//3, j%3].set_xticklabels(["1%", "10%", "100%"])
-                ax[j//3, j%3].set_xlabel("Training Set Size")
+                ax[j//3, j%3].set_xlabel("")
                 ax[j//3, j%3].set_xlim((-0.1, 3.0))
     
     # Add unique y-labels
@@ -114,7 +114,7 @@ def evaluate(results, accuracy, f1):
                loc = 'upper center', borderaxespad = 0., ncol = 3, fontsize = 'x-large')
     
     # Aesthetics
-    pl.suptitle("Performance Metrics for Three Supervised Learning Models", fontsize = 16, y = 1.10)
+    pl.suptitle("Performance Ms", fontsize = 16, y = 1.10)
     pl.tight_layout()
     pl.show()
     
